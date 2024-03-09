@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mess_management_system/src/features/authentication/screens/splash_screen/splash_screen.dart';
+import 'package:mess_management_system/src/features/authentication/screens/on_boarding/on_boarding_screen.dart';
 import 'package:mess_management_system/src/utils/theme/theme.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       theme: MessAppTheme.lightTheme,
       darkTheme: MessAppTheme.darkTheme,
-      home: SplashScreen(),
+      home: OnBoardingScreen(),
     );
   }
 }

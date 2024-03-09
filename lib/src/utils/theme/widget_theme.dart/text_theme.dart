@@ -16,5 +16,9 @@ class MessTextTheme {
       color: Colors.black54,
       fontSize: 24,
     ),
+    displaySmall: GoogleFonts.poppins(
+      color: Colors.black54,
+      fontSize: 20,
+    ),
   );
 }

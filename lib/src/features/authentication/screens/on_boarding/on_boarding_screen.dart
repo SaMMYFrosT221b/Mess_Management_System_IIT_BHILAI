@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
@@ -8,13 +9,14 @@ import 'package:mess_management_system/src/constants/text_string.dart';
 import 'package:mess_management_system/src/features/authentication/controllers/on_boarding_controller.dart';
 import 'package:mess_management_system/src/features/authentication/models/model_on_boarding.dart';
 import 'package:mess_management_system/src/features/authentication/screens/on_boarding/on_boarding_page_widget.dart';
+import 'package:mess_management_system/src/features/authentication/screens/welcome/welcome_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   OnBoardingScreen({super.key});
   @override
   Widget build(BuildContext context) {
-  final pageController = OnBoardingController();
+    final pageController = OnBoardingController();
     return Scaffold(
       body: Stack(
         alignment: Alignment.center,
@@ -49,7 +51,14 @@ class OnBoardingScreen extends StatelessWidget {
             top: 50,
             right: 20,
             child: TextButton(
-                onPressed: () => pageController.skip(),
+                // onPressed: () => pageController.skip(),
+                onPressed: () {
+                  Navigator.popUntil(context, (route) => route.isFirst);
+                  Navigator.pushReplacement(
+                      context,
+                      CupertinoPageRoute(
+                          builder: (context) => WelcomeScreen()));
+                },
                 child: const Text(
                   "Skip",
                   style: TextStyle(color: Colors.grey),
@@ -62,9 +71,7 @@ class OnBoardingScreen extends StatelessWidget {
                 activeIndex: pageController.currentPage.value,
                 count: 3,
                 effect: const WormEffect(
-                  activeDotColor: Color(0xff272727),
-                  dotHeight: 5.0
-                ),
+                    activeDotColor: Color(0xff272727), dotHeight: 5.0),
               ),
             ),
           ),

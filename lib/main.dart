@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mess_management_system/src/features/authentication/screens/on_boarding/on_boarding_screen.dart';
+import 'package:mess_management_system/src/features/authentication/screens/welcome/welcome_screen.dart';
 import 'package:mess_management_system/src/utils/theme/theme.dart';
 
 void main() {

@@ -1,8 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mess_management_system/src/common_widgets/days_heat_map/days_heat_map.dart';
-import 'package:mess_management_system/src/common_widgets/future_builder/future_builder.dart';
+import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:mess_management_system/src/features/authentication/screens/snackbar/snack_bar.dart';
 import 'package:mess_management_system/src/features/authentication/screens/welcome/welcome_screen.dart';
 
@@ -28,44 +29,45 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text("Home"),
-          actions: [
-            IconButton(
-              onPressed: () {
-                logout();
-              },
-              icon: Icon(Icons.exit_to_app),
-            ),
-          ],
-        ),
-        body: Column(
-          children: [
-            Center(
-              child: OutlinedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      CupertinoPageRoute(builder: (context) => MyHeatMap()));
-                },
-                child: Text("SnackBar"),
-              ),
-            ),
-            SizedBox(
-              height: 40,
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      CupertinoPageRoute(
-                          builder: (context) => FutureBuilderLoading()));
-                },
-                child: Text("Future Loading")),
+    final controller = Get.put(NavigationController());
+    return Scaffold(
+      bottomNavigationBar: Obx(
+        () => NavigationBar(
+          height: 80,
+          elevation: 0,
+          selectedIndex: controller.selectedIndex.value,
+          onDestinationSelected: (index) {
+            controller.selectedIndex.value = index;
+            print(controller.selectedIndex.value);
+          },
+          destinations: const [
+            NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
+            NavigationDestination(icon: Icon(Iconsax.shop), label: 'Store'),
+            NavigationDestination(icon: Icon(Iconsax.heart), label: 'Wishlist'),
+            NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile'),
           ],
         ),
       ),
+      body: Obx(() => controller.screens[controller.selectedIndex.value]),
     );
   }
+}
+
+class NavigationController extends GetxController {
+  final Rx<int> selectedIndex = 0.obs;
+
+  final screens = [
+    Container(
+      color: Colors.purple,
+    ),
+    Container(
+      color: Colors.blue,
+    ),
+    Container(
+      color: Colors.orange,
+    ),
+    Container(
+      color: Colors.green,
+    ),
+  ];
 }

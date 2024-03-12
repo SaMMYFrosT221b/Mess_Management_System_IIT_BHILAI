@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyDAl5GwhQWFg_uub5Tg6ZXIggS9JShj9O4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>296892784267</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.messManagementSystem</string>
+	<key>PROJECT_ID</key>
+	<string>mess-management-system-16f62</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mess-management-system-16f62.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:296892784267:ios:10c0312beb137d545dfe8e</string>
+</dict>
+</plist>

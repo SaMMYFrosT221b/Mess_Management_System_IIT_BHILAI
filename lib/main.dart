@@ -1,9 +1,29 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:mess_management_system/firebase_options.dart';
+import 'package:mess_management_system/src/features/authentication/screens/home_screen/HomeScreen.dart';
 import 'package:mess_management_system/src/features/authentication/screens/on_boarding/on_boarding_screen.dart';
 import 'package:mess_management_system/src/features/authentication/screens/welcome/welcome_screen.dart';
 import 'package:mess_management_system/src/utils/theme/theme.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  // FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  // Map<String, dynamic> newUser = {
+  //   "email": "adil@iitbhilai.ac.in",
+  //   "rollNumber": 12145678,
+  //   "password": "123456789",
+  //   "cPassword": "123456789"
+  // };
+  // await _firestore.collection("users").add(newUser);
+  // print("New User added");
+
   runApp(const App());
 }
 
@@ -15,7 +35,9 @@ class App extends StatelessWidget {
     return MaterialApp(
       theme: MessAppTheme.lightTheme,
       darkTheme: MessAppTheme.darkTheme,
-      home: OnBoardingScreen(),
+      home: (FirebaseAuth.instance.currentUser != null)
+          ? HomeScreen()
+          : OnBoardingScreen(),
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mess_management_system/firebase_options.dart';
+import 'package:mess_management_system/src/features/authentication/screens/bottom_navigation_bar/BottomNavigationMenu.dart';
 import 'package:mess_management_system/src/features/authentication/screens/home_screen/HomeScreen.dart';
 import 'package:mess_management_system/src/features/authentication/screens/on_boarding/on_boarding_screen.dart';
 import 'package:mess_management_system/src/features/authentication/screens/welcome/welcome_screen.dart';
@@ -36,7 +37,7 @@ class App extends StatelessWidget {
       theme: MessAppTheme.lightTheme,
       darkTheme: MessAppTheme.darkTheme,
       home: (FirebaseAuth.instance.currentUser != null)
-          ? HomeScreen()
+          ? BottomNavigationMenu()
           : OnBoardingScreen(),
     );
   }

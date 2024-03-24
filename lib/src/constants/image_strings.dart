@@ -22,3 +22,17 @@ const String messForgetPasswordImage =
 
 // OTP
 const String messVerificationOtp = "assets/gif/verification_otp.gif";
+
+// Banner Images
+const String messBreakfastImage1 = "assets/images/banner/breakfast.png";
+const String messLunchImage1 = "assets/images/banner/lunch.png";
+const String messSnacksImage1 = "assets/images/banner/snacks.png";
+const String messDinnerImage1 = "assets/images/banner/dinner.png";
+
+// Profile Picture
+const String messProfilePic = "assets/images/person.png";
+
+// shops
+const String messJuiceCorner = "assets/images/shops/juice_corner.png";
+const String messPizzaShop = "assets/images/shops/pizza_shop.png";
+const String messAmulShop = "assets/images/shops/amul_shop.png";

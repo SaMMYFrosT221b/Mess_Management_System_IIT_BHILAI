@@ -12,7 +12,7 @@ class ShopList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       // appBar: AppBar(
       //   title: Text("Shops"),
       //   automaticallyImplyLeading: true,
@@ -23,7 +23,7 @@ class ShopList extends StatelessWidget {
       // ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(MessDefaultSize),
+          padding: EdgeInsets.all(10),
           child: Column(
             children: [
               // Appbar
@@ -69,11 +69,11 @@ class MessCardHorizontal extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        width: 310,
+        width: double.infinity * 0.8,
         padding: const EdgeInsets.all(1),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: messDarkColor,
+          color: Color(0xFFA8CD9F),
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),

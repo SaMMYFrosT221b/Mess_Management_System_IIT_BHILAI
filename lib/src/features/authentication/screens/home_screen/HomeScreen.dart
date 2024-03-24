@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:mess_management_system/src/common_widgets/days_heat_map/days_heat_map.dart';
+import 'package:mess_management_system/src/common_widgets/drop_menu/drop_menu.dart';
 import 'package:mess_management_system/src/features/authentication/screens/bottom_navigation_bar/banner_with_text.dart';
 import 'package:mess_management_system/src/features/authentication/screens/snackbar/snack_bar.dart';
 import 'package:mess_management_system/src/features/authentication/screens/welcome/welcome_screen.dart';
@@ -32,13 +33,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Ratnakar Gautam"),
+        title: const Text("Ratnakar Gautam"),
         actions: [
           IconButton(
               onPressed: () {
                 logout();
               },
-              icon: Icon(Iconsax.logout)),
+              icon: const Icon(Iconsax.logout)),
         ],
       ),
       body: SingleChildScrollView(
@@ -46,15 +47,16 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              MyHeatMap(),
-              SizedBox(
+              const MyHeatMap(),
+              const SizedBox(
                 height: 5.0,
               ),
-              Text("Today Menu"),
-              SizedBox(
+              const Text("Today Menu"),
+              const SizedBox(
                 height: 5.0,
               ),
               MyCarousel(),
+              MessDropdown(),
             ],
           ),
         ),

@@ -36,3 +36,13 @@ const String messProfilePic = "assets/images/person.png";
 const String messJuiceCorner = "assets/images/shops/juice_corner.png";
 const String messPizzaShop = "assets/images/shops/pizza_shop.png";
 const String messAmulShop = "assets/images/shops/amul_shop.png";
+
+// Menu items
+const String messButterPaneer = "assets/images/menu_items/butter_paneer.jpg";
+
+// Feedback Images
+const String messFeedbackImage1 = "assets/images/feedback/feedback_1.png";
+const String messFeedbackImage2 = "assets/images/feedback/feedback_2.png";
+const String messFeedbackImage3 = "assets/images/feedback/feedback_3.png";
+const String messFeedbackImage4 = "assets/images/feedback/feedback_4.png";
+const String messFeedbackImage5 = "assets/images/feedback/feedback_5.png";

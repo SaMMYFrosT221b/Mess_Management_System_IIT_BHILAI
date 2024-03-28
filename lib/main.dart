@@ -14,17 +14,6 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
-  // FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  // Map<String, dynamic> newUser = {
-  //   "email": "adil@iitbhilai.ac.in",
-  //   "rollNumber": 12145678,
-  //   "password": "123456789",
-  //   "cPassword": "123456789"
-  // };
-  // await _firestore.collection("users").add(newUser);
-  // print("New User added");
-
   runApp(const App());
 }
 

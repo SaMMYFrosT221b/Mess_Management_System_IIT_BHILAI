@@ -9,6 +9,7 @@ import 'package:mess_management_system/src/features/authentication/screens/feedb
 import 'package:mess_management_system/src/features/authentication/screens/home_screen/HomeScreen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mess_management_system/src/features/authentication/screens/mess_menu/mess_menu.dart';
+import 'package:mess_management_system/src/features/authentication/screens/mess_menu/mess_menu_day_wise.dart';
 import 'package:mess_management_system/src/features/authentication/screens/profile/profile.dart';
 import 'package:mess_management_system/src/features/authentication/screens/restraunt/menu_card.dart';
 import 'package:mess_management_system/src/features/authentication/screens/restraunt/restraunts.dart';
@@ -59,7 +60,7 @@ class NavigationController extends GetxController {
   final screens = [
     const HomeScreen(),
     const ShopList(),
-    MessMenuScreen(),
+    MessMenuScreenDayWise(),
     FeedbackForm(),
     ProfilePage(
       name: "Ratnakar Gautam",

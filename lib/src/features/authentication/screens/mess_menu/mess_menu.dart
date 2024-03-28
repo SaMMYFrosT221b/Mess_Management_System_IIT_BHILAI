@@ -16,13 +16,13 @@ class _MessMenuScreenState extends State<MessMenuScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Image(
                 image: AssetImage(messJuiceCorner),
-                height: 40,
+                height: 90,
               ), // Adjust the path and height as needed
-              Text('Mess Menu'),
+              // Text('Mess Menu'),
             ],
           ),
           bottom: const TabBar(

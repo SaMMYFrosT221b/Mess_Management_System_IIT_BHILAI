@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,8 +10,12 @@ import 'package:mess_management_system/src/constants/colors.dart';
 import 'package:mess_management_system/src/constants/image_strings.dart';
 import 'package:mess_management_system/src/features/authentication/screens/bottom_navigation_bar/banner_with_text.dart';
 import 'package:mess_management_system/src/features/authentication/screens/mess_menu/mess_menu.dart';
+import 'package:mess_management_system/src/features/authentication/screens/mess_menu/mess_menu_day_wise.dart';
 import 'package:mess_management_system/src/features/authentication/screens/snackbar/snack_bar.dart';
 import 'package:mess_management_system/src/features/authentication/screens/welcome/welcome_screen.dart';
+import 'package:mess_management_system/src/test.dart';
+
+import '../restraunt/menu_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -46,6 +51,37 @@ class _HomeScreenState extends State<HomeScreen> {
       'Drinks',
     ];
 
+    var popular_dishes = [
+      "Rajma",
+      "Carrot Peas",
+      "Gobi Paratha-Bhurji",
+      "Panni Puri",
+      "Mix Veg dry",
+      "Brinjal Bartha",
+      "Aloo puri-Boiled egg",
+      "Dahi Kachori",
+      "Choley(kabuli chana)",
+      "Mix Veg",
+      "Idly-Boiled egg",
+      "Bread Pakoda",
+      "Gatte Sabji",
+      "Veg Manchurian",
+      "Rawa Dosa-Bhurji",
+      "Samosa",
+      "Palak Tomato",
+      "Aloo Sem",
+      "Uttapam-Omlette",
+      "Veg Cutlet",
+      "Chole Masala",
+      "Aloo gobhi mattr",
+      "Masala Dosa-Omlette",
+      "Pav Bhaji",
+      "Loki Chana",
+      "Veg kofta",
+      "Aloo Paratha-Bhurji",
+      "Veg Roll"
+    ];
+
     //Toggle Favorite button
     bool toggleIsFavorated(bool isFavorited) {
       return !isFavorited;
@@ -57,213 +93,140 @@ class _HomeScreenState extends State<HomeScreen> {
         "${dateTime.year}-${dateTime.month.toString().padLeft(2, '0')}-${dateTime.day.toString().padLeft(2, '0')}";
 
     return Scaffold(
-        appBar: AppBar(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Home",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 24,
-                ),
-              ),
-              Icon(
-                Iconsax.logout,
+      appBar: AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Home",
+              style: TextStyle(
                 color: Colors.black,
-                size: 30.0,
-              )
-            ],
-          ),
-          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-          elevation: 0.0,
+                fontWeight: FontWeight.w500,
+                fontSize: 24,
+              ),
+            ),
+            IconButton(
+                onPressed: logout,
+                icon: Icon(
+                  Iconsax.logout,
+                  color: Colors.black,
+                  size: 30.0,
+                ))
+          ],
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                padding: const EdgeInsets.only(top: 20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16.0,
-                      ),
-                      width: size.width * .9,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.search,
-                            color: Colors.black54.withOpacity(.6),
-                          ),
-                          const Expanded(
-                              child: TextField(
-                            showCursor: false,
-                            decoration: InputDecoration(
-                              hintText: 'Search Plant',
-                              border: InputBorder.none,
-                              focusedBorder: InputBorder.none,
-                            ),
-                          )),
-                          Icon(
-                            Icons.mic,
-                            color: Colors.black54.withOpacity(.6),
-                          ),
-                        ],
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.black12,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                height: 50.0,
-                width: size.width,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        elevation: 0.0,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Text("Todays Menu"),
+            Container(
+              height: 600,
+              width: double.infinity,
+              child: Test(),
+            ),
+            ItemCard(
+              dishImage:
+                  'https://www.cubesnjuliennes.com/wp-content/uploads/2020/03/Best-Kadai-Paneer-Recipe.jpg',
+              dishName: 'Paneer Bhurji',
+              mess: 'Kumar',
+              price: 100,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ItemCard extends StatelessWidget {
+  final String dishImage;
+  final String dishName;
+  final String mess;
+  final double price;
+
+  const ItemCard({
+    Key? key,
+    required this.dishImage,
+    required this.dishName,
+    required this.mess,
+    required this.price,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: ListTile(
+        leading: CircleAvatar(
+          backgroundImage: NetworkImage(dishImage), // display the dish image
+        ),
+        title: Text(dishName), // display the dish name
+        subtitle: Text(mess), // display the mess
+        trailing: Text('\$${price.toStringAsFixed(2)}'), // display the price
+      ),
+    );
+  }
+}
+
+class MessDataFromBackend extends StatefulWidget {
+  const MessDataFromBackend({super.key});
+
+  @override
+  State<MessDataFromBackend> createState() => _MessDataFromBackendState();
+}
+
+class _MessDataFromBackendState extends State<MessDataFromBackend> {
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      height: size.height,
+      child: StreamBuilder<QuerySnapshot>(
+        stream:
+            FirebaseFirestore.instance.collection("todays_menu").snapshots(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.active) {
+            if (snapshot.hasData && snapshot.data != null) {
+              return Expanded(
                 child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: _plantTypes.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              selectedIndex = index;
-                            });
-                          },
-                          child: Text(
-                            _plantTypes[index],
-                            style: TextStyle(
-                              fontSize: 16.0,
-                              fontWeight: selectedIndex == index
-                                  ? FontWeight.bold
-                                  : FontWeight.w300,
-                              color: selectedIndex == index
-                                  ? Colors.green
-                                  : Colors.black26,
-                            ),
-                          ),
-                        ),
-                      );
-                    }),
-              ),
-              SizedBox(
-                height: size.height * .3,
-                child: ListView.builder(
-                    itemCount: 3,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (BuildContext context, int index) {
-                      return GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          width: 200,
-                          margin: const EdgeInsets.symmetric(horizontal: 10),
-                          child: Stack(
-                            children: [
-                              Positioned(
-                                top: 10,
-                                right: 20,
-                                child: Container(
-                                  height: 40,
-                                  width: 40,
-                                  child: IconButton(
-                                    onPressed: () {},
-                                    icon: Icon(
-                                      Icons.favorite,
-                                      color: Colors.red,
-                                    ),
-                                    iconSize: 25,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(50),
-                                  ),
-                                ),
-                              ),
-                              Positioned(
-                                left: 50,
-                                right: 50,
-                                top: 50,
-                                bottom: 50,
-                                child: Image.asset(messButterPaneer),
-                              ),
-                              Positioned(
-                                bottom: 15,
-                                left: 20,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Paneer Bhurji",
-                                      style: const TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 15,
-                                      ),
-                                    ),
-                                    Text(
-                                      "Kumar Mess",
-                                      style: const TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Positioned(
-                                bottom: 15,
-                                right: 20,
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 10, vertical: 2),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  child: Text(
-                                    "₹49.6",
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 16),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          decoration: BoxDecoration(
-                            color: Color(0xFF627254),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
-                      );
-                    }),
-              ),
-              Container(
-                padding: const EdgeInsets.only(left: 16, bottom: 20, top: 20),
-                child: Text(
-                  'Todays Menu ( ${dateOnly} )',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18.0,
-                  ),
+                  itemCount: snapshot.data!.docs.length,
+                  itemBuilder: (context, index) {
+                    Map<String, dynamic> menu = snapshot.data!.docs[index]
+                        .data() as Map<String, dynamic>;
+                    String docId = snapshot.data!.docs[index].id;
+                    return ExpansionTile(
+                      title: Text(docId),
+                      children: menu.entries.map((entry) {
+                        String meal = entry.key;
+                        List<dynamic> items = entry.value;
+                        // return ListTile(
+                        //   title: Text(meal),
+                        //   subtitle: Text(items.join(', ')),
+                        // );
+                        return MenuCard(
+                          image: messButterPaneer,
+                          title: meal,
+                          price: 46.90,
+                          subTitle: items.join(', ').toString(),
+                          messName: docId,
+                        );
+                      }).toList(),
+                    );
+                  },
                 ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                height: size.height,
-                child: MessMenuScreen(),
-              ),
-            ],
-          ),
-        ));
+              );
+            } else {
+              return Text("No Data");
+            }
+          } else {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        },
+      ),
+    );
   }
 }

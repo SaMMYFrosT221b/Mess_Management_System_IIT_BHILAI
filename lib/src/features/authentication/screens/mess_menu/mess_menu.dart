@@ -107,16 +107,20 @@ class MenuList extends StatelessWidget {
   Widget build(BuildContext context) {
     // You would fetch the actual menu data from a database or service
     final List<String> menuItems = [
-      'Item 1',
-      'Item 2',
-      'Item 3'
+      'Butter Paneer',
+      'Chicken Biryani',
     ]; // Placeholder for menu items
 
     return ListView.builder(
       itemCount: menuItems.length,
       itemBuilder: (context, index) {
         return const MenuCard(
-            image: messButterPaneer, title: "Butter Paneer", price: 49.90);
+          image: messButterPaneer,
+          title: "Butter Paneer",
+          price: 49.90,
+          subTitle: 'Very Tasty',
+          messName: 'kumar_mess',
+        );
       },
     );
   }

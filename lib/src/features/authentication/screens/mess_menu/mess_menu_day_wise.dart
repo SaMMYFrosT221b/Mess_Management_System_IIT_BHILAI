@@ -250,7 +250,12 @@ class MenuList extends StatelessWidget {
       itemCount: menuItems.length,
       itemBuilder: (context, index) {
         return MenuCard(
-            image: messButterPaneer, title: 'Butter Paneer', price: 49.90);
+          image: messButterPaneer,
+          title: 'Butter Paneer',
+          price: 49.90,
+          subTitle: 'Very Tasty',
+          messName: 'kumar_mess',
+        );
       },
     );
   }

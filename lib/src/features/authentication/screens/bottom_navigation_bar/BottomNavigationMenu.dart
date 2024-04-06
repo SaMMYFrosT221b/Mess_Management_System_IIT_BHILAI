@@ -3,16 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
-import 'package:mess_management_system/src/common_widgets/days_heat_map/days_heat_map.dart';
-import 'package:mess_management_system/src/constants/image_strings.dart';
 import 'package:mess_management_system/src/features/authentication/screens/feedback/feedback_screen.dart';
 import 'package:mess_management_system/src/features/authentication/screens/home_screen/HomeScreen.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mess_management_system/src/features/authentication/screens/mess_menu/mess_menu.dart';
 import 'package:mess_management_system/src/features/authentication/screens/mess_menu/mess_menu_day_wise.dart';
 import 'package:mess_management_system/src/features/authentication/screens/profile/profile.dart';
-import 'package:mess_management_system/src/features/authentication/screens/restraunt/menu_card.dart';
-import 'package:mess_management_system/src/features/authentication/screens/restraunt/restraunts.dart';
 import 'package:mess_management_system/src/features/authentication/screens/shops/shop_list.dart';
 
 class BottomNavigationMenu extends StatefulWidget {
@@ -58,8 +52,8 @@ class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
   final screens = [
-    const HomeScreen(),
-    const ShopList(),
+    HomeScreen(),
+    ShopList(),
     MessMenuScreenDayWise(),
     FeedbackForm(),
     ProfilePage(

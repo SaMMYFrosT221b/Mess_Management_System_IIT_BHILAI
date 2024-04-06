@@ -38,9 +38,12 @@ class MenuCard extends StatelessWidget {
     required this.image,
     required this.title,
     required this.price,
+    required this.subTitle,
+    required this.messName,
   }) : super(key: key);
 
-  final String image, title;
+  final String image, title, subTitle;
+  final String messName;
   final double price;
 
   @override
@@ -88,11 +91,11 @@ class MenuCard extends StatelessWidget {
                           color: Colors.black,
                         ),
                       ),
-                      const Padding(
+                      Padding(
                         padding:
                             EdgeInsets.symmetric(vertical: 8), // Adjust padding
                         child: Text(
-                          "Shortbread, chocolate turtle cookies, and red velvet.",
+                          subTitle,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         ),
@@ -107,7 +110,7 @@ class MenuCard extends StatelessWidget {
                               backgroundColor: Colors.black38,
                             ),
                           ),
-                          const Text("Kumar"),
+                          Text(messName),
                           const Spacer(),
                           Text(
                             "IND \₹${price.toStringAsFixed(2)}",

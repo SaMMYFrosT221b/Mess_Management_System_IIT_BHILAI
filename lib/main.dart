@@ -8,26 +8,32 @@ import 'package:mess_management_system/src/features/authentication/screens/home_
 import 'package:mess_management_system/src/features/authentication/screens/on_boarding/on_boarding_screen.dart';
 import 'package:mess_management_system/src/features/authentication/screens/welcome/welcome_screen.dart';
 import 'package:mess_management_system/src/utils/theme/theme.dart';
+import 'package:mess_management_system/src/vendor/home/bottom_navigation.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const App());
+  runApp(App());
 }
 
 class App extends StatelessWidget {
-  const App({super.key});
+  App({super.key});
 
   @override
   Widget build(BuildContext context) {
+    String? userEmail = FirebaseAuth.instance.currentUser?.email;
     return MaterialApp(
       theme: MessAppTheme.lightTheme,
       darkTheme: MessAppTheme.darkTheme,
-      home: (FirebaseAuth.instance.currentUser != null)
-          ? BottomNavigationMenu()
-          : OnBoardingScreen(),
+      home: (userEmail == "kumar@iitbhilai.ac.in" ||
+              userEmail == "sreesai@iitbhilai.ac.in" ||
+              userEmail == "galav@iitbhilai.ac.in")
+          ? VendorBottomNavigationMenu()
+          : (userEmail != null)
+              ? BottomNavigationMenu()
+              : OnBoardingScreen(),
     );
   }
 }

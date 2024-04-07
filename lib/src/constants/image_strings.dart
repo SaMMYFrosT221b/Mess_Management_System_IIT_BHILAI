@@ -46,3 +46,6 @@ const String messFeedbackImage2 = "assets/images/feedback/feedback_2.png";
 const String messFeedbackImage3 = "assets/images/feedback/feedback_3.png";
 const String messFeedbackImage4 = "assets/images/feedback/feedback_4.png";
 const String messFeedbackImage5 = "assets/images/feedback/feedback_5.png";
+
+// Vendor
+const String footPrintsImage = "assets/images/foot_prints.png";

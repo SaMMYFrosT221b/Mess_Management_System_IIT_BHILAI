@@ -6,6 +6,8 @@ import 'package:mess_management_system/src/constants/sizes.dart';
 import 'package:mess_management_system/src/constants/text_string.dart';
 import 'package:mess_management_system/src/features/authentication/screens/forget_password/forget_password_option/forget_password_modal_bottom_sheet.dart';
 import 'package:mess_management_system/src/features/authentication/screens/home_screen/HomeScreen.dart';
+import 'package:mess_management_system/src/vendor/home/bottom_navigation.dart';
+import 'package:mess_management_system/src/vendor/home/home.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({
@@ -41,9 +43,19 @@ class _LoginFormState extends State<LoginForm> {
         setState(() {
           _isLoading = false;
         });
-        Navigator.popUntil(context, (route) => route.isFirst);
-        Navigator.pushReplacement(
-            context, CupertinoPageRoute(builder: (context) => HomeScreen()));
+        if (email == 'kumar@iitbhilai.ac.in' ||
+            email == 'galav@iitbhilai.ac.in' ||
+            email == 'sreesai@iitbhilai.ac.in') {
+          Navigator.popUntil(context, (route) => route.isFirst);
+          Navigator.pushReplacement(
+              context,
+              CupertinoPageRoute(
+                  builder: (context) => VendorBottomNavigationMenu()));
+        } else {
+          Navigator.popUntil(context, (route) => route.isFirst);
+          Navigator.pushReplacement(
+              context, CupertinoPageRoute(builder: (context) => HomeScreen()));
+        }
       }
     }
   }

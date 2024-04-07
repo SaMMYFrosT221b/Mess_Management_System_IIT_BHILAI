@@ -120,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Text("Todays Menu"),
+            Text("Todays Renu"),
             Container(
               height: 600,
               width: double.infinity,

@@ -1,7 +1,12 @@
 import 'dart:io';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mess_management_system/src/constants/image_strings.dart';
+import 'package:uuid/uuid.dart';
 
 // FeedbackForm StatefulWidget
 class FeedbackForm extends StatefulWidget {
@@ -13,18 +18,77 @@ class FeedbackForm extends StatefulWidget {
 
 // FeedbackForm State
 class _FeedbackFormState extends State<FeedbackForm> {
-  // ImagePicker instance
+  File? feedbackImage;
   final ImagePicker _picker = ImagePicker();
-  // Selected image file
   XFile? _image;
+  bool _isLoading = false;
 
-  // Function to handle image picking
+  final titleController = TextEditingController();
+  final descriptionController = TextEditingController();
+  String categoryController = "";
+
   Future<void> _pickImage() async {
-    final XFile? selectedImage =
-        await _picker.pickImage(source: ImageSource.camera);
+    XFile? selectedImage =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (selectedImage != null) {
+      File convertedFile = File(selectedImage.path);
+      setState(() {
+        feedbackImage = convertedFile;
+        _image = selectedImage;
+      });
+      print("Image selected");
+    } else {
+      print("No Image Selected");
+    }
+  }
+
+  void submitHandler() async {
     setState(() {
-      _image = selectedImage;
+      _isLoading = true;
     });
+    String title = titleController.text.trim();
+    String description = descriptionController.text.trim();
+    String category = categoryController;
+
+    titleController.clear();
+    descriptionController.clear();
+
+    if (title != "" &&
+        description != "" &&
+        category != "" &&
+        feedbackImage != null) {
+      UploadTask uploadTask = FirebaseStorage.instance
+          .ref()
+          .child("feedbackImagePath")
+          .child(Uuid().v1())
+          .putFile(feedbackImage!);
+
+      TaskSnapshot taskSnapShot = await uploadTask;
+      String downloadURL = await taskSnapShot.ref.getDownloadURL();
+
+      Map<String, dynamic> feedbackData = {
+        "title": title,
+        "description": description,
+        "category": category,
+        "imageURL": downloadURL
+      };
+      FirebaseFirestore.instance.collection("feedback").add(feedbackData);
+      print("Feedback provied Successfully");
+      setState(() {
+        _image = null;
+        _isLoading = false;
+      });
+    } else {
+      print("Enter all the fields");
+      setState(() {
+        _isLoading = false;
+      });
+    }
+  }
+
+  void printUserEmail() {
+    String? userEmail = FirebaseAuth.instance.currentUser?.email;
+    print('Current user email: $userEmail');
   }
 
   @override
@@ -53,6 +117,7 @@ class _FeedbackFormState extends State<FeedbackForm> {
             ),
             // Title input field
             TextFormField(
+              controller: titleController,
               decoration: const InputDecoration(
                 labelText: 'Title',
                 border: OutlineInputBorder(),
@@ -61,6 +126,7 @@ class _FeedbackFormState extends State<FeedbackForm> {
             const SizedBox(height: 16.0),
             // Description input field
             TextFormField(
+              controller: descriptionController,
               decoration: const InputDecoration(
                 labelText: 'Description',
                 border: OutlineInputBorder(),
@@ -75,12 +141,17 @@ class _FeedbackFormState extends State<FeedbackForm> {
                 DropdownMenuItem(child: Text('Food Related'), value: 'food'),
                 DropdownMenuItem(child: Text('Other'), value: 'other'),
               ],
-              onChanged: (value) {},
+              onChanged: (value) {
+                setState(() {
+                  categoryController = value ?? '';
+                });
+              },
               decoration: const InputDecoration(
                 labelText: 'Category',
                 border: OutlineInputBorder(),
               ),
             ),
+
             const SizedBox(height: 24.0),
             // Image display (if selected)
             if (_image != null) Image.file(File(_image!.path)),
@@ -92,11 +163,25 @@ class _FeedbackFormState extends State<FeedbackForm> {
             const SizedBox(height: 24.0),
             // Submit button
             ElevatedButton(
-              child: const Text('Submit'),
-              onPressed: () {
-                // TODO: Validate and submit feedback
-              },
+              child: (_isLoading == false)
+                  ? Text("Submit")
+                  : CircularProgressIndicator(),
+              onPressed: submitHandler,
             ),
+            SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(onPressed: printUserEmail, child: Text("User Email"))
+            // CupertinoButton(
+            //   onPressed: _pickImage,
+            //   padding: EdgeInsets.zero,
+            //   child: CircleAvatar(
+            //     backgroundImage:
+            //         (feedbackImage != null) ? FileImage(feedbackImage!) : null,
+            //     backgroundColor: Colors.grey,
+            //     radius: 40,
+            //   ),
+            // )
           ],
         ),
       ),

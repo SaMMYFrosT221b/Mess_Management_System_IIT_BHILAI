@@ -39,13 +39,13 @@ class ShopList extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                Text("Students Left"),
-                LineChartSample(),
-                SizedBox(
-                  height: 20,
-                ),
-                Text("Sample chart 2"),
-                LineChartSample2(),
+                // Text("Students Left"),
+                // // LineChartSample(),
+                // SizedBox(
+                //   height: 20,
+                // ),
+                // Text("Sample chart 2"),
+                // LineChartSample2(),
               ],
             ),
           ),

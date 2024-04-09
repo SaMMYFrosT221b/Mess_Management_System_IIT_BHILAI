@@ -5,6 +5,7 @@ const String messRollNumber = "Roll Number";
 const String messNext = "Next";
 const String messLogin = "Login";
 const String messEmail = "E-Mail";
+const String messName = "Name";
 const String messSignup = "Signup";
 const String messPhoneNo = "Phone No";
 const String messPassword = "Password";

@@ -156,49 +156,68 @@
 //   }
 // }
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
-  final String name;
-  final String email;
-  final String idNo;
-  final String contactNumber;
-  final String whichMess;
+  ProfilePage({Key? key}) : super(key: key);
 
-  ProfilePage({
-    required this.name,
-    required this.email,
-    required this.idNo,
-    required this.contactNumber,
-    required this.whichMess,
-  });
+  Future<DocumentSnapshot> getUserDetails() async {
+    final User? user = FirebaseAuth.instance.currentUser;
+
+    if (user != null) {
+      return FirebaseFirestore.instance.collection('users').doc(user.uid).get();
+    } else {
+      throw Exception('No user is currently logged in.');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    String initials = name.isNotEmpty
-        ? name.trim().split(' ').map((l) => l[0]).take(2).join()
-        : '';
-
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            CircleAvatar(
-              radius: 40,
-              child: Text(
-                initials,
-                style: const TextStyle(fontSize: 40),
+      body: FutureBuilder<DocumentSnapshot>(
+        future: getUserDetails(),
+        builder:
+            (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          } else {
+            Map<String, dynamic> data =
+                snapshot.data!.data() as Map<String, dynamic>;
+            String name = data['name'];
+            String email = data['email'];
+            String rollNumber = data['rollNumber'];
+
+            String initials = name.isNotEmpty
+                ? name.trim().split(' ').map((l) => l[0]).take(2).join()
+                : '';
+
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  CircleAvatar(
+                    radius: 40,
+                    child: Text(
+                      initials,
+                      style: const TextStyle(fontSize: 40),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Text('Name: $name'),
+                  Text('Email: $email'),
+                  Text('Roll Number: $rollNumber'),
+                  Text("Contact No: +91 9044906728"),
+                  Text("Mess: Kumar Mess")
+                  // Add other fields as needed
+                ],
               ),
-            ),
-            const SizedBox(height: 20),
-            Text('Name: $name'),
-            Text('Email: $email'),
-            Text('ID No.: $idNo'),
-            Text('Contact Number: $contactNumber'),
-            Text('Mess: $whichMess')
-          ],
-        ),
+            );
+          }
+        },
       ),
     );
   }

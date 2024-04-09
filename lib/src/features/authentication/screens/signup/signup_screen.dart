@@ -30,12 +30,14 @@ class _SignupScreenState extends State<SignupScreen> {
     final isDarkMode = brightness == Brightness.dark;
     final size = mediaQuery.size;
 
+    TextEditingController nameController = TextEditingController();
     TextEditingController emailController = TextEditingController();
     TextEditingController rollNumberController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
     TextEditingController cPasswordController = TextEditingController();
 
     Future<void> createAccount() async {
+      String name = nameController.text.trim();
       String email = emailController.text.trim();
       String rollNumber = rollNumberController.text.trim();
       String password = passwordController.text.trim();
@@ -45,12 +47,14 @@ class _SignupScreenState extends State<SignupScreen> {
         _isLoading = true;
       });
 
+      print(name);
       print(email);
       print(rollNumber);
       print(password);
       print(cPassword);
 
-      if (email == "" ||
+      if (name == "" ||
+          email == "" ||
           rollNumber == "" ||
           password == "" ||
           cPassword == "") {
@@ -68,13 +72,18 @@ class _SignupScreenState extends State<SignupScreen> {
             Navigator.push(context,
                 CupertinoPageRoute(builder: (context) => LoginScreen()));
             Map<String, dynamic> newUser = {
+              "name": name,
               "email": email,
               "rollNumber": rollNumber,
               "password": password,
               "cPassword": cPassword
             };
-            await FirebaseFirestore.instance.collection("users").add(newUser);
-            print("New User craeted successfully");
+            // Use the user's UID as the document ID in Firestore
+            await FirebaseFirestore.instance
+                .collection("users")
+                .doc(userCredential.user!.uid)
+                .set(newUser);
+            print("New User created successfully");
           }
         } on FirebaseAuthException catch (ex) {
           log(ex.code.toString());
@@ -102,11 +111,37 @@ class _SignupScreenState extends State<SignupScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         TextFormField(
+                          controller: nameController,
+                          decoration: InputDecoration(
+                              label: Text(messName),
+                              prefixIcon: Icon(
+                                Icons.person,
+                                color: isDarkMode
+                                    ? messPrimaryColor
+                                    : messSecondaryColor,
+                              ),
+                              border: OutlineInputBorder(),
+                              labelStyle: TextStyle(
+                                  color: isDarkMode
+                                      ? messPrimaryColor
+                                      : messSecondaryColor),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    width: 2.0,
+                                    color: isDarkMode
+                                        ? messPrimaryColor
+                                        : messSecondaryColor),
+                              )),
+                        ),
+                        SizedBox(
+                          height: messFormHeight - 20,
+                        ),
+                        TextFormField(
                           controller: emailController,
                           decoration: InputDecoration(
                               label: Text(messEmail),
                               prefixIcon: Icon(
-                                Icons.person_2_outlined,
+                                Icons.email,
                                 color: isDarkMode
                                     ? messPrimaryColor
                                     : messSecondaryColor,

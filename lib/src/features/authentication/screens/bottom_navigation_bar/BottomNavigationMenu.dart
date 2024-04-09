@@ -56,12 +56,6 @@ class NavigationController extends GetxController {
     ShopList(),
     MessMenuScreenDayWise(),
     FeedbackForm(),
-    ProfilePage(
-      name: "Ratnakar Gautam",
-      email: "ratnakarg@iitbhilai.ac.in",
-      idNo: "12141360",
-      contactNumber: "+91 9044906728",
-      whichMess: "Kumar Mess",
-    ),
+    ProfilePage(),
   ];
 }

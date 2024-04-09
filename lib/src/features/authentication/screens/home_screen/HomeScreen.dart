@@ -105,15 +105,21 @@ class _HomeScreenState extends State<HomeScreen> {
                 fontSize: 24,
               ),
             ),
-            IconButton(
-                onPressed: logout,
-                icon: Icon(
-                  Iconsax.logout,
-                  color: Colors.black,
-                  size: 30.0,
-                ))
           ],
         ),
+        actions: [
+          Text(
+            "Logout",
+            style: TextStyle(fontSize: 10),
+          ),
+          IconButton(
+              onPressed: logout,
+              icon: Icon(
+                Iconsax.logout,
+                color: Colors.black,
+                size: 30.0,
+              ))
+        ],
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 0.0,
       ),

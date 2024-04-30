@@ -375,214 +375,210 @@ class MenuList extends StatelessWidget {
   Widget build(BuildContext context) {
     Map<String, Map<String, Map<String, List<String>>>> menuData = {
       "Galav Mess": {
-        "Sun": {
-          "Breakfast": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
-          ],
-          "Lunch": [
-            "Chicken Curry",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
-          ],
-          "Snacks": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
-          ],
-          "Dinner": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
-          ]
-        },
         "Mon": {
           "Breakfast": [
             "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
+            "Bread(4 Pc) Jam Butter",
+            "Boiled Egg(2 Pc)",
+            "Tea",
+            "Milk",
             "Corn Flakes"
           ],
           "Lunch": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            "Mix Veg",
+            "Arhar daal",
+            "Jeera Rice",
+            "Mix Salad",
+            "Chapati",
+            "Chicken-Curry",
+            "Egg Fried Rice"
           ],
           "Snacks": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            "Samosa",
+            "Tea",
+            "Coffee",
           ],
           "Dinner": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            "Brinjal Bharta",
+            "Dal Tadka",
+            "Plain Rice",
+            "Mixed Salad",
+            "Chapatti",
+            "Fish Curry",
+            "Kheer/Sewai"
           ]
         },
         "Tues": {
           "Breakfast": [
-            "Poori Sabji",
+            "Aloo Pyaaj Paratha",
             "Bread Jam Butter",
-            "Boiled Egg",
+            "Omlette(2 Egg)",
             "Tea Milk",
             "Corn Flakes"
           ],
           "Lunch": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            "Chole Masala",
+            "Kadhi Pakoda",
+            "Steam Rice",
+            "Mix Salad",
+            "Chicken Fried Rice",
+            "Egg Curry"
           ],
           "Snacks": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            "Veg Cutlet",
+            "Tea",
+            "Coffee",
           ],
           "Dinner": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            "Fry-Beans",
+            "Arhar Daal",
+            "Jerra Rice",
+            "Mix Salad",
+            "Egg Curry",
+            "Chicken Curry",
+            "Chicken Biryani",
+            "Gulab Jamun"
+          ]
+        },
+        "Sun": {
+          "Breakfast": [
+            'Gobi Parantha+Tomato Chatni',
+            'Bread(4pcs)+Jaam+Butter',
+            'Tea+Milk(Cofee powder)',
+            'Bhurji(2 Eggs)',
+            'CORN FLAKES+MILK',
+          ],
+          "Lunch": [
+            'Kaddu-Sabji',
+            'Masoor-Dal',
+            'Steam Rice',
+            'Mix-Salad',
+            'Chciken Curry/Biryani',
+          ],
+          "Snacks": [
+            'Pav-Bhaji',
+            'Tea+Coffee',
+          ],
+          "Dinner": [
+            'Manchurian',
+            'white veg Fried-Rice/Veg-pulao',
+            'Mixed-Salad',
+            'Chapatti(fulka)',
+            'EggCurry/ChickenCurry/Biryani',
+            'Fruit Custard'
           ]
         },
         "Wed": {
           "Breakfast": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Rawa-Dosa',
+            'Bread(4pcs)+Jaam+Butter',
+            'Tea+Milk(Cofee powder)',
+            'Bhurji(2-Eggs)',
+            'CORN FLAKES+MILK'
           ],
           "Lunch": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Bhindi-do-Pyaza',
+            'Jeera Rice',
+            'Mix-Salad',
+            'Chilli chicken',
+            'FishCurry(Rohu/Katla)'
           ],
-          "Snacks": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
-          ],
+          "Snacks": ['Papri-Chat', 'Tea+Coffee'],
           "Dinner": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Veg-kofta',
+            'Dal-makhni',
+            'Plain Rice',
+            'Mixed-Salad',
+            'Chapatti(fulka)',
+            'EggCurry/ChickenCurry/Biryani',
+            'Ladoo(2 pcs)'
           ]
         },
         "Thur": {
           "Breakfast": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Veg-Corn sandwich',
+            'Bread(4pcs)+Jaam+Butter',
+            'Tea+Milk(Cofee powder)',
+            'Omlette(2 Eggs)',
+            'CORN FLAKES+MILK'
           ],
           "Lunch": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Soya-Cheema',
+            'Arhar Dal',
+            'Steam Rice',
+            'Mix-Salad',
+            'Egg Curry/Chciken Chilli'
           ],
           "Snacks": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            "Sandwich",
+            "Tea/Coffee",
           ],
           "Dinner": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Aloo-Jeera/Parwal',
+            'Dal Tadka',
+            'Jeera Rice',
+            'Mixed-Salad',
+            'Chapatti(fulka)',
+            'EggCurry',
+            'ChickenCurry',
+            'FishCurry(Rohu/Katla)',
+            'Ballusahi(2)'
           ]
         },
         "Fri": {
           "Breakfast": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Dosa',
+            'Bread(4pcs)+Jaam+Butter',
+            'Tea+Milk(Cofee powder)',
+            'Bhurji(2 Eggs)',
+            'CORN FLAKES+MILK'
           ],
           "Lunch": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Loki-Kofta',
+            'Rajma',
+            'Jeera Rice',
+            'Mix-Salad',
+            'Chicken Biryani/Chicken Spicy'
           ],
-          "Snacks": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
-          ],
+          "Snacks": ['Pasta/Macaroni', 'Tea+Coffee'],
           "Dinner": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Mix-veg',
+            'Arhar Dal',
+            'Plain Rice',
+            'Mixed-Salad',
+            'Chapatti(fulka)',
+            'EggCurry/ChickenCurry/Biryani',
+            'Halwa'
           ]
         },
         "Sat": {
           "Breakfast": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Idli',
+            'Bread(4pcs)+Jam+Butter',
+            'Tea+Milk(Cofee powder)',
+            'Boiled eggs(2 Eggs)',
+            'CORN FLAKES+MILK'
           ],
           "Lunch": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Chole',
+            'Masoor-Dal',
+            'Steam Rice',
+            'Mix-Salad',
+            'Bhature',
+            'Egg Curry/FishCurry(Rohu/Katla)',
           ],
           "Snacks": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Dhokla',
+            'Tea+Coffee',
           ],
           "Dinner": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Gobi-Matar',
+            'Moong-Dal',
+            'Lemon Rice',
+            'Mixed-Salad',
+            'Chapatti(fulka)',
+            'EggCurry/ChickenCurry/Biryani',
+            'Rasgulla'
           ]
         },
         // ... other days
@@ -590,425 +586,417 @@ class MenuList extends StatelessWidget {
       "Kumar Mess": {
         "Sun": {
           "Breakfast": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
+            'Aloo Paratha',
+            "Bread jam",
+            "Banana",
+            "Tea/Milk",
             "Corn Flakes"
           ],
           "Lunch": [
-            "Chili Paneer",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            "Palak Paneer",
+            "Besan Gatta",
+            'Masoor Daal',
+            "Steam Rice",
+            "Salad",
+            "Chapati",
+            "Curd"
           ],
-          "Snacks": [
-            "Samosa",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
-          ],
+          "Snacks": ["Sandwich", "Tea/Coffee"],
           "Dinner": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            "Paneer",
+            "Manchurian",
+            "Fried Rice",
+            "Salad",
+            "Fruit Custard"
           ]
         },
         "Mon": {
           "Breakfast": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
+            "Dosa",
+            "Bread jam",
+            "Banana",
+            "Tea/Milk",
             "Corn Flakes"
           ],
           "Lunch": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            "Butter Paneer Masala",
+            "Mix Veg",
+            'Arhar Daal',
+            "Jeera Rice",
+            "Salad",
+            "Chapati",
+            "Curd"
           ],
-          "Snacks": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
-          ],
+          "Snacks": ["Macroni", "Tea/Coffee"],
           "Dinner": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            "Kadai Paneer",
+            "Kheer",
+            "Brinjal Bharta",
+            "Daal Tadka",
+            "Steam Rice",
+            "Salad",
+            "Curd"
           ]
         },
         "Tues": {
           "Breakfast": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
+            "Idli",
+            "Bread jam",
+            "Banana",
+            "Tea/Milk",
             "Corn Flakes"
           ],
           "Lunch": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            "Matar Paneer",
+            "Chole Masala",
+            'Kadhi Pakoda',
+            "Steam Rice",
+            "Salad",
+            "Chapati",
+            "Curd"
           ],
-          "Snacks": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
-          ],
+          "Snacks": ["Dhokla", "Tea/Coffee"],
           "Dinner": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            "Veg Biryani",
+            "Gulab Jamun",
+            "Sukhi Phaliya",
+            "Arhar Daal",
+            "Jeera Rice",
+            "Salad",
+            "Curd"
           ]
         },
         "Wed": {
           "Breakfast": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
+            "Poha",
+            "Bread jam",
+            "Banana",
+            "Tea/Milk",
             "Corn Flakes"
           ],
           "Lunch": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            "Shahi Paneer",
+            "Loki Chana",
+            'Masoor Daal',
+            "Jeera Rice",
+            "Salad",
+            "Chapati",
+            "Curd"
           ],
-          "Snacks": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
-          ],
+          "Snacks": ["Samosa", "Tea/Coffee"],
           "Dinner": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            "Kadai Paneer",
+            "Laddoo",
+            "Veg Kofta",
+            "Daal Makhni",
+            "Steam Rice",
+            "Salad",
+            "Curd"
           ]
         },
         "Thur": {
           "Breakfast": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
+            "Paneer paratha",
+            "Bread jam",
+            "Banana",
+            "Tea/Milk",
             "Corn Flakes"
           ],
           "Lunch": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            "Palak Paneer",
+            "Palak Tamatar",
+            'Arhar Daal',
+            "Steam Rice",
+            "Salad",
+            "Chapati",
+            "Curd"
           ],
-          "Snacks": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
-          ],
+          "Snacks": ["Veg Roll", "Tea/Coffee"],
           "Dinner": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            "Panner Mirch",
+            "Ballu sahi",
+            "Aloo Jeera",
+            "Daal Tadka",
+            "Jeera Rice",
+            "Salad",
+            "Curd"
           ]
         },
         "Fri": {
           "Breakfast": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
+            "Aloo Puri",
+            "Bread jam",
+            "Banana",
+            "Tea/Milk",
             "Corn Flakes"
           ],
           "Lunch": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            "veg Biryani",
+            "Rajma",
+            'Masoor Daal',
+            "Jeera Rice",
+            "Salad",
+            "Chapati",
+            "Curd"
           ],
-          "Snacks": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
-          ],
+          "Snacks": ["Papdi Chat", "Tea/Coffee"],
           "Dinner": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            "Shahi Paneer",
+            "Halwa",
+            "Mix Veg",
+            "Arhar Daal",
+            "Steam Rice",
+            "Salad",
+            "Curd"
           ]
         },
         "Sat": {
           "Breakfast": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
+            "Poha",
+            "Bread jam",
+            "Banana",
+            "Tea/Milk",
             "Corn Flakes"
           ],
           "Lunch": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            "Chole Bhature",
+            'Masoor Daal',
+            "Steam Rice",
+            "Salad",
+            "Chapati",
+            "Curd"
           ],
-          "Snacks": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
-          ],
+          "Snacks": ["Veg cutlet", "Tea/Coffee"],
           "Dinner": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            "Butter Paneer Masala",
+            "Rasgulla",
+            "Gobhi Matar",
+            "Moong Daal",
+            "Lemon Rice",
+            "Salad",
+            "Curd"
           ]
-        },
-        // ... other days
+        }
       },
       "Sree Sai": {
         "Sun": {
           "Breakfast": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Dosa',
+            'Bread(4pcs)+Jaam+Butter',
+            'Tea+Milk(Cofee powder)',
+            'Bhurji(2 Eggs)',
+            'CORN FLAKES+MILK',
           ],
           "Lunch": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Kaddu-Sabji',
+            'Masoor-Dal',
+            'Steam Rice',
+            'Mix-Salad',
+            'Chciken Curry',
+            'Biryani',
           ],
           "Snacks": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Papri-Chat',
+            'Tea+Cofee',
           ],
           "Dinner": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Manchurian',
+            'Fried-Rice/Veg-pulao',
+            'Mixed-Salad',
+            'Chapatti(fulka)',
+            'Fruit Custard',
+            'Fish(Rohu/Katla)',
+            'Biryani'
           ]
         },
         "Mon": {
           "Breakfast": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Aloo-Parantha',
+            'Bread(4pcs)+Jaam+Butter',
+            'Tea+Milk',
+            'Boiled egg(2 Eggs)',
+            'CORN FLAKES+MILK',
           ],
           "Lunch": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Mix-veg',
+            'Arhar dal',
+            'Jeera Rice',
+            'Mix-Salad',
+            'Chapati(Phulka)',
+            'Chicken-Curry',
+            'Fish-Curry(Rohu/Katla)',
           ],
           "Snacks": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Pav-Bhaji',
+            'Tea+Cofee',
           ],
           "Dinner": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Brinjal-bharta',
+            'Dal-Tadka',
+            'Plain-Rice',
+            'Mixed-Salad',
+            'Kheer/Sewai',
+            'EggCurry',
+            'ChickenCurry',
+            'Biryani'
           ]
         },
         "Tues": {
           "Breakfast": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Rawa-Dosa',
+            'Bread(4pcs)+Jaam+Butter',
+            'Tea+Milk',
+            'Omlette(2 Eggs)',
+            'CORN FLAKES+MILK',
           ],
           "Lunch": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Chole-Masala',
+            'Kadhi Pakora',
+            'Steam Rice',
+            'Mix-Salad',
+            'Chicken Fried Rich',
+            'Egg Curry',
           ],
           "Snacks": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Sandwich',
+            'Tea+Cofee',
           ],
           "Dinner": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Dry-beans',
+            'Arhar Dal',
+            'Jeera Rice',
+            'Mixed-Salad',
+            'Chapatti(fulka)',
+            'Gulab Jamun(2 pcs)',
+            'FishCurry(Rohu/Katla)',
+            'Biryani'
           ]
         },
         "Wed": {
           "Breakfast": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Aloo-Poori',
+            'Bread(4pcs)+Jaam+Butter',
+            'Tea+Milk(Cofee powder)',
+            'Bhurji(2-Eggs)',
+            'CORN FLAKES+MILK',
           ],
           "Lunch": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Bhindi-do-Pyaza',
+            'Jeera Rice',
+            'Mix-Salad',
+            'Chilli chicken',
+            'Fish-Curry(Rohu/Katla)',
           ],
           "Snacks": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Dhokla',
+            'Tea+Cofee',
           ],
           "Dinner": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Veg-kofta',
+            'Dal-makhni',
+            'Plain Rice',
+            'Mixed-Salad',
+            'Chapatti(fulka)',
+            'Ladoo(2 pcs)',
+            'EggCurry',
+            'Chicken Curry',
+            'Chicken Biryani'
           ]
         },
         "Thur": {
           "Breakfast": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Gobi-Parantha',
+            'Bread(4pcs)+Jaam+Butter',
+            'Tea+Milk(Cofee powder)',
+            'Omlette(2 Eggs)',
+            'CORN FLAKES+MILK',
           ],
           "Lunch": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Soya-Cheema',
+            'Arhar Dal',
+            'Steam Rice',
+            'Mix-Salad',
+            'Egg Curry',
+            'Chciken Chilli',
           ],
           "Snacks": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Samosa',
+            'Tea+Cofee',
           ],
           "Dinner": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Aloo-Jeera/Parwal',
+            'Dal Tadka',
+            'Jeera Rice',
+            'Mixed-Salad',
+            'Chapatti(fulka)',
+            'Ballusahi(2)',
+            'FishCurry(Rohu/Katla)',
+            'Chicken Biryani'
           ]
         },
         "Fri": {
           "Breakfast": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Idli',
+            'Bread(4pcs)+Jaam+Butter',
+            'Tea+Milk(Cofee powder)',
+            'Bhurji(2 Eggs)',
+            'CORN FLAKES+MILK',
           ],
           "Lunch": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Loki-Kofta',
+            'Rajma',
+            'Jeera Rice',
+            'Mix-Salad',
+            'Chicken Biryani',
+            'Chicken Spicy',
           ],
           "Snacks": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Veg-Cutlet',
+            'Tea+Cofee',
           ],
           "Dinner": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Mix-veg',
+            'Arhar Dal',
+            'Plain Rice',
+            'Mixed-Salad',
+            'Chapatti(fulka)',
+            'Halwa',
+            'EggCurry',
+            'Chicken Curry',
+            'Chicken Biryani'
           ]
         },
         "Sat": {
           "Breakfast": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Sandwich-Veg-Corn',
+            'Bread(4pcs)+Jaam+Butter',
+            'Tea+Milk(Cofee powder)',
+            'Boiled eggs(2 Eggs)',
+            'CORN FLAKES+MILK',
           ],
           "Lunch": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Chole',
+            'Masoor-Dal',
+            'Steam Rice',
+            'Mix-Salad',
+            'Bhature',
+            'Egg Curry',
+            'Fried Chicken',
           ],
           "Snacks": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Pasta/Macaroni',
+            'Tea+Cofee',
           ],
           "Dinner": [
-            "Poori Sabji",
-            "Bread Jam Butter",
-            "Boiled Egg",
-            "Tea Milk",
-            "Corn Flakes"
+            'Gobi-Matar',
+            'Moong-Dal',
+            'Lemon Rice',
+            'Mixed-Salad',
+            'Chapatti(fulka)',
+            'Rasgulla',
+            'EggCurry',
+            'Chicken Curry',
+            'Biryani'
           ]
         },
         // ... other days

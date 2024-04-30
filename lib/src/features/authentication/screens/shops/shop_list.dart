@@ -225,14 +225,6 @@ class _LineChartSampleState extends State<LineChartSample> {
             ),
           ),
         ),
-        ElevatedButton(
-          onPressed: () {
-            setState(() {
-              addRandomData();
-            });
-          },
-          child: Text('Add Random Data'),
-        ),
       ],
     );
   }

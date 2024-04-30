@@ -53,10 +53,9 @@ class _FeedbackFormState extends State<FeedbackForm> {
     titleController.clear();
     descriptionController.clear();
 
-    if (title != "" &&
-        description != "" &&
-        category != "" &&
-        feedbackImage != null) {
+    String downloadURL = "";
+
+    if (feedbackImage != null) {
       UploadTask uploadTask = FirebaseStorage.instance
           .ref()
           .child("feedbackImagePath")
@@ -64,8 +63,10 @@ class _FeedbackFormState extends State<FeedbackForm> {
           .putFile(feedbackImage!);
 
       TaskSnapshot taskSnapShot = await uploadTask;
-      String downloadURL = await taskSnapShot.ref.getDownloadURL();
+      downloadURL = await taskSnapShot.ref.getDownloadURL();
+    }
 
+    if (title != "" && description != "" && category != "") {
       Map<String, dynamic> feedbackData = {
         "title": title,
         "description": description,
@@ -73,7 +74,7 @@ class _FeedbackFormState extends State<FeedbackForm> {
         "imageURL": downloadURL
       };
       FirebaseFirestore.instance.collection("feedback").add(feedbackData);
-      print("Feedback provied Successfully");
+      print("Feedback provided Successfully");
       setState(() {
         _image = null;
         _isLoading = false;

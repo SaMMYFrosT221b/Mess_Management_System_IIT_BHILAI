@@ -30,8 +30,7 @@ class _MealFormState extends State<MealForm> {
   var messName = "Kumar";
 
   void sendData() async {
-    var url =
-        'https://service-suitable-apache-donation.trycloudflare.com/create';
+    var url = 'https://backgrounds-idol-dl-hitachi.trycloudflare.com/create';
     var messName = 'kumar_mess'; // replace with your actual mess name
 
     var data = {
